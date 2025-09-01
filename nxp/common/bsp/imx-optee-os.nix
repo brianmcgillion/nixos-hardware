@@ -12,15 +12,15 @@ let
 
   outdir = "out/arm-plat-imx/core";
   python3 = pkgs.buildPackages.python3;
-  toolchain = pkgsCross.gcc9Stdenv.cc;
-  binutils = pkgsCross.gcc9Stdenv.cc.bintools.bintools_bin;
+  toolchain = pkgsCross.gcc14Stdenv.cc;
+  binutils = pkgsCross.gcc14Stdenv.cc.bintools.bintools_bin;
   cpp = pkgs.buildPackages.gcc;
 
 in
 pkgs.stdenv.mkDerivation rec {
 
   pname = "imx-optee-os";
-  version = "5.15.32_2.0.0";
+  version = "lf-6.12.20-2.0.0";
 
   buildInputs = [
     python3
@@ -36,7 +36,7 @@ pkgs.stdenv.mkDerivation rec {
 
   src = fetchGit {
     url = "https://github.com/nxp-imx/imx-optee-os.git";
-    ref = "lf-5.15.32_2.0.0";
+    ref = "lf-6.12.20-2.0.0";
   };
 
   postPatch = ''

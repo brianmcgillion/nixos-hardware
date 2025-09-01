@@ -1,13 +1,13 @@
 { pkgs }:
 let
   python3 = pkgs.buildPackages.python3;
-  toolchain = pkgs.gcc9Stdenv.cc;
-  binutils = pkgs.gcc9Stdenv.cc.bintools.bintools_bin;
+  toolchain = pkgs.gcc14Stdenv.cc;
+  binutils = pkgs.gcc14Stdenv.cc.bintools.bintools_bin;
   cpp = pkgs.gcc;
 in
 pkgs.stdenv.mkDerivation rec {
   pname = "imx8mp-optee-os";
-  version = "lf-6.1.55-2.2.0";
+  version = "lf-6.12.20-2.0.0";
 
   nativeBuildInputs = [
     python3
@@ -23,8 +23,9 @@ pkgs.stdenv.mkDerivation rec {
 
   src = pkgs.fetchgit {
     url = "https://github.com/nxp-imx/imx-optee-os.git";
-    rev = "a303fc80f7c4bd713315687a1fa1d6ed136e78ee";
-    sha256 = "sha256-OpyG812DX0c06bRZPKWB2cNu6gtZCOvewDhsKgrGB+s=";
+    rev = "lf-6.12.20-2.0.0";
+    # rev = "a303fc80f7c4bd713315687a1fa1d6ed136e78ee";
+    sha256 = "sha256-AMZUMgmmyi5l3BMT84uubwjU0lwNObs9XW6ZCbqfhmc=";
   };
 
   postPatch = ''

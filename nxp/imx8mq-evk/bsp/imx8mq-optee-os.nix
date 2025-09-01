@@ -1,8 +1,8 @@
 { pkgs }:
 let
   python3 = pkgs.buildPackages.python3;
-  toolchain = pkgs.gcc9Stdenv.cc;
-  binutils = pkgs.gcc9Stdenv.cc.bintools.bintools_bin;
+  toolchain = pkgs.gcc13Stdenv.cc;
+  binutils = pkgs.gcc13Stdenv.cc.bintools.bintools_bin;
   cpp = pkgs.gcc;
 in
 pkgs.stdenv.mkDerivation rec {
